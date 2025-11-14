@@ -9,10 +9,14 @@ class RCTExampleModule(
     reactContext: ReactApplicationContext
 ) : ReactContextBaseJavaModule(reactContext) {
 
-    fun getName() = NAME
+    override fun getName(): String = NAME
 
     @ReactMethod
     fun printMessage() {
-        Log.d("RCTExampleModule", "Native message with React Native")
+        Log.d("RCTExampleModule", "Hello from Android native module!")
+    }
+
+    companion object {
+        const val NAME = "ExampleModule"
     }
 }
