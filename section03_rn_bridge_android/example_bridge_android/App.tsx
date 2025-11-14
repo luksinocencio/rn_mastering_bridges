@@ -1,19 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native';
-
-import ExampleModule from './specs/NativeExampleModule';
+import { Button, NativeModules, StyleSheet, Text, View } from 'react-native';
 
 function App() {
-  // const { ExampleModule } = NativeModules;
+  const { ExampleModule } = NativeModules;
 
   console.log(ExampleModule);
 
   return (
     <View style={styles.container}>
       <Text>Hello Bridge React Native!</Text>
-      {/* <Button
+      <Button
         title="Click printMessage"
         onPress={() => ExampleModule.printMessage()}
-      /> */}
+      />
     </View>
   );
 }
