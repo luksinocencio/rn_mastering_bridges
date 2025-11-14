@@ -1,8 +1,8 @@
-import Foundation
 import React
+import Foundation
 
 @objc(RCTExampleModule)
-class RCTExampleModule: NSObject {
+class RCTExampleModule: RCTEventEmitter {
   
   /// Exemplo de módulo nativo exposto ao React Native.
   /// A anotação @objc permite que o módulo e seus métodos
@@ -28,5 +28,14 @@ class RCTExampleModule: NSObject {
       let error = NSError(domain: "", code: 200, userInfo: [NSLocalizedDescriptionKey: "Titutlo de erro"])
       reject("Error", "Mensagem de erro", error)
     }
+  }
+  
+  @objc
+  func eventMessage(_ value: CGFloat) {
+    sendEvent(withName: "onMessagePrinted", body: ["value": value])
+  }
+  
+  override func supportedEvents() -> [String]! {
+    return ["onMessagePrinted"]
   }
 }

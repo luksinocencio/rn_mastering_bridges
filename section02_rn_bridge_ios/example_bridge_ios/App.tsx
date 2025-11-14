@@ -1,8 +1,20 @@
-import { Button, NativeModules, StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  NativeEventEmitter,
+  NativeModules,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App() {
   const { ExampleModule } = NativeModules;
+  const eventEmitter = new NativeEventEmitter(ExampleModule);
+
+  const subscription = eventEmitter.addListener('onMessagePrinted', event => {
+    console.log('Evento recebido', event.value);
+  });
 
   console.log(ExampleModule);
 
@@ -36,6 +48,12 @@ function App() {
               .catch(error => console.log(error))
           }
         />
+        <Button
+          title="Click me for eventMessage"
+          onPress={() => ExampleModule.eventMessage(5)}
+        />
+
+        <Button title="remove event" onPress={() => subscription.remove()} />
       </View>
     </SafeAreaProvider>
   );
