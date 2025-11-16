@@ -12,8 +12,8 @@ class RCTExampleModule(
     override fun getName(): String = NAME
 
     @ReactMethod
-    fun printMessage() {
-        Log.d("RCTExampleModule", "Hello from Android native module!")
+    fun printMessage(title: String, age: Int) {
+        Log.d("RCTExampleModule", "Hello from Android native module! $title - $age")
     }
 
     companion object {

@@ -10,7 +10,7 @@ function App() {
       <Text>Hello Bridge React Native!</Text>
       <Button
         title="Click printMessage"
-        onPress={() => ExampleModule.printMessage()}
+        onPress={() => ExampleModule.printMessage('Lucas', 32)}
       />
     </View>
   );
