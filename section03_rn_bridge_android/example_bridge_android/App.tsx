@@ -1,18 +1,41 @@
-import { Button, NativeModules, StyleSheet, Text, View } from 'react-native';
+import {
+  NativeEventEmitter,
+  NativeModules,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+import { useEffect } from 'react';
+import BtnComponent from './src/components/Buttom/BtnComponent';
 
 function App() {
   const { ExampleModule } = NativeModules;
 
-  console.log(ExampleModule);
+  console.log('Native module: ', ExampleModule);
+
+  const eventEmitter = new NativeEventEmitter(ExampleModule);
+
+  useEffect(() => {
+    const subscription = eventEmitter.addListener('onMessagePrinted', event => {
+      console.log('Evento recebido: ', event);
+      // console.log('Evento recebido: ', event.value);
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, [eventEmitter]);
 
   return (
     <View style={styles.container}>
       <Text>Hello Bridge React Native!</Text>
-      <Button
+      <BtnComponent
         title="Click printMessage"
         onPress={() => ExampleModule.printMessage('Lucas', 32)}
       />
-      <Button
+
+      <BtnComponent
         title="Click me for returnMessage"
         onPress={() => {
           ExampleModule.returnMessage('Lucas')
@@ -21,6 +44,11 @@ function App() {
             })
             .catch(error => console.error(error));
         }}
+      />
+
+      <BtnComponent
+        title="Click me for event message"
+        onPress={() => ExampleModule.eventMessage(17)}
       />
     </View>
   );
