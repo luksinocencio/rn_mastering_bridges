@@ -42,6 +42,17 @@ function App() {
       />
 
       <BtnComponent
+        title="Click me for returnMessage error"
+        onPress={() => {
+          ExampleModule.returnMessage('Teste')
+            .then(value => {
+              console.log('Native message returned: ' + value);
+            })
+            .catch(error => console.error(error));
+        }}
+      />
+
+      <BtnComponent
         title="Click me for event message"
         onPress={() => ExampleModule.eventMessage(17)}
       />
