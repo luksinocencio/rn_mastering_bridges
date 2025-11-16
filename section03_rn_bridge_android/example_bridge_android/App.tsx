@@ -12,6 +12,16 @@ function App() {
         title="Click printMessage"
         onPress={() => ExampleModule.printMessage('Lucas', 32)}
       />
+      <Button
+        title="Click me for returnMessage"
+        onPress={() => {
+          ExampleModule.returnMessage('Lucas')
+            .then(value => {
+              console.log('Native message returned: ' + value);
+            })
+            .catch(error => console.error(error));
+        }}
+      />
     </View>
   );
 }
