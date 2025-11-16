@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
-
-import BtnComponent from './components/BtnComponent';
-
-import ExampleModule from '../specs/NativeExampleModule';
-
 import { NativeEventEmitter, StyleSheet, Text, View } from 'react-native';
 
-function App() {
-  console.log('Native module: ', ExampleModule);
+import ExampleModule from '../specs/NativeExampleModule';
+import BtnComponent from './components/BtnComponent';
 
+function App() {
   const eventEmitter = new NativeEventEmitter(ExampleModule);
+
+  console.log('Native module: ', ExampleModule);
 
   useEffect(() => {
     const subscription = eventEmitter.addListener('onMessagePrinted', event => {
