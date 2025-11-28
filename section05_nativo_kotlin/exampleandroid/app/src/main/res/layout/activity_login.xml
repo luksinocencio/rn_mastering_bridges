@@ -47,7 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:text="@string/text_button_enter" />
+        android:text="@string/text_button_enter"
+        android:textAllCaps="true" />
 
     <com.devmeist3r.example_android.components.APPButton
         android:id="@+id/buttonRegister"
@@ -55,6 +56,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:text="@string/text_button_register"
+        android:textAllCaps="true"
         app:variant="secondary" />
 
 </LinearLayout>
