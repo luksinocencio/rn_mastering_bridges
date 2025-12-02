@@ -15,4 +15,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="img_logo">Imagem da logo</string>
+    <string name="title_modal">Seja bem vindo</string>
+    <string name="description_modal">Agora que você é um especialista React Native vamos começar conhecendo nosso app nativo.</string>
+    <string name="image_description">Imagem de fundo</string>
+    <string name="button_modal">Vamos começar</string>
 </resources>
