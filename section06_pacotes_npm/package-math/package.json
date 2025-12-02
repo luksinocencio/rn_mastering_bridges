@@ -1,0 +1,30 @@
+{
+  "name": "rn-package-math-2",
+  "version": "0.2.2",
+  "description": "My math package",
+  "keywords": [
+    "math"
+  ],
+  "homepage": "https://github.com/luksinocencio/package-math#readme",
+  "bugs": {
+    "url": "https://github.com/luksinocencio/package-math/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luksinocencio/package-math.git"
+  },
+  "license": "MIT",
+  "author": "Lucas Inocencio",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "validar-cpf": "*"
+  },
+  "devDependencies": {
+    "validar-cpf": "^3.1.1"
+  }
+}
