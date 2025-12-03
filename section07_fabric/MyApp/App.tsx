@@ -12,6 +12,13 @@ function App() {
           title="printMessage"
           onPress={() => NativeRTNExample?.printMessage()}
         />
+        <Button
+          title="returnMessage"
+          onPress={async () => {
+            const message = await NativeRTNExample?.returnMessage();
+            console.log(message);
+          }}
+        />
       </View>
     </SafeAreaProvider>
   );
