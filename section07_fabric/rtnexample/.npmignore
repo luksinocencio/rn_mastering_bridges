@@ -1,5 +1,10 @@
 /*
 
+ios/*
+!ios/RTNExample.h
+!ios/RTNExample.mm
+
 !js
 !package.json
 !README.md
+!rtn-example.podspec
