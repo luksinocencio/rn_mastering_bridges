@@ -1,16 +1,28 @@
 #import <Foundation/Foundation.h>
 #import "RTNExample.h"
+#import "rtnexample-Swift.h"
 
-@implementation RTNExample
+@implementation RTNExample {
+  Example *example;
+}
+
+- (instancetype)init {
+  if ((self = [super init])) {
+    example = [[Example alloc] init];
+  }
+  return self;
+}
 
 RCT_EXPORT_MODULE(Example)
 
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params { 
+Example *example = [[Example alloc] init];
+ 
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params {
   return std::make_shared<facebook::react::NativeRTNExampleSpecJSI>(params);
 }
 
-- (void)printMessage { 
-  NSLog(@"My message with turbo modulde");
+RCT_EXPORT_METHOD(printMessage) {
+  [example printMessage];
 }
 
 @end

@@ -3,6 +3,7 @@
 ios/*
 !ios/RTNExample.h
 !ios/RTNExample.mm
+!ios/Example.swift
 
 !js
 !package.json

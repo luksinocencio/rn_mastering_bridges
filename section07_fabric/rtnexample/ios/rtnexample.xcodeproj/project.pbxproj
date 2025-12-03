@@ -12,6 +12,7 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85AE9B0E4652BAFD17ADAA4E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		E876BE942EE04D66001CF89E /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876BE932EE04D66001CF89E /* Example.swift */; };
 		E8E71C772EDF8A30009A69F7 /* RTNExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8E71C762EDF8A2E009A69F7 /* RTNExample.mm */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-rtnexample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rtnexample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = rtnexample/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rtnexample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E876BE932EE04D66001CF89E /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		E876BE952EE0562F001CF89E /* rtnexample-Briding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rtnexample-Briding-Header.h"; sourceTree = "<group>"; };
 		E8E71C762EDF8A2E009A69F7 /* RTNExample.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RTNExample.mm; sourceTree = "<group>"; };
 		E8E71C7A2EDF8A8F009A69F7 /* RTNExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTNExample.h; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -46,12 +49,14 @@
 			isa = PBXGroup;
 			children = (
 				E8E71C762EDF8A2E009A69F7 /* RTNExample.mm */,
+				E876BE932EE04D66001CF89E /* Example.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				E8E71C7A2EDF8A8F009A69F7 /* RTNExample.h */,
+				E876BE952EE0562F001CF89E /* rtnexample-Briding-Header.h */,
 			);
 			name = rtnexample;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 			files = (
 				E8E71C772EDF8A30009A69F7 /* RTNExample.mm in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+				E876BE942EE04D66001CF89E /* Example.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
