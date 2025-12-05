@@ -20,3 +20,29 @@ criar um arquivo `.npmignore`
 !package.json
 !README.md
 ```
+
+## Configuração no android
+
+no build.gradle nivel projeto
+
+```
+android { 
+    namespace "com.rtnexample" // colocar o nome do pacote
+    compileSdkVersion = 36 // versão do projeto
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies { 
+    implementation "com.facebook.react:react-native"
+}
+```
+
+depois entrar na pasta android, e executar o seguinte comando:
+
+```
+./gradlew generateCodegenArtifactsFromSchema 
+```

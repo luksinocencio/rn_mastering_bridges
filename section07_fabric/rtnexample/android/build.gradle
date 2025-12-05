@@ -19,3 +19,18 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+apply plugin: "com.android.library"
+
+android {
+    namespace "com.rtnexample"
+    compileSdkVersion = 36
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("com.facebook.react:react-native")
+}
