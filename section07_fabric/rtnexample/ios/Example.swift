@@ -11,4 +11,9 @@ public class Example: NSObject {
   public func returnMessage() -> String {
     return "My returned message from swift"
   }
+  
+  @objc
+  public func paramsFunction(_ name: String, _ age: Int) -> String {
+    return "Hello \(name), you are \(age) years old"
+  }
 }

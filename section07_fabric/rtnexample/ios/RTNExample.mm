@@ -38,5 +38,21 @@ RCT_EXPORT_METHOD(printMessage) {
   }
 }
 
+- (void)paramsFunction:(nonnull NSString *)name age:(double)age resolve:(nonnull RCTPromiseResolveBlock)resolve reject:(nonnull RCTPromiseRejectBlock)reject { 
+  NSString *result = [example paramsFunction:name :age];
+  
+  if (result != nil) {
+    resolve(result);
+  } else {
+    NSError *error = [NSError errorWithDomain:@"RTNExample"
+                                         code:0
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Result was nil"}];
+    reject(@"no_result", @"Result was nil", error);
+  }
+}
+
+- (void)emmiterFunction { 
+  [self emitOnValueChanged:@(375)];
+}
 
 @end

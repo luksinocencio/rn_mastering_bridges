@@ -2,7 +2,7 @@
 
 #import <RTNExampleSpec/RTNExampleSpec.h>
 
-@interface RTNExample : NSObject<NativeRTNExampleSpec>
+@interface RTNExample : NativeRTNExampleSpecBase <NativeRTNExampleSpec>
 
 @end
 
