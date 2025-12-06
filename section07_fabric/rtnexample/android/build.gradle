@@ -14,12 +14,14 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22')
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
 apply plugin: "com.android.library"
+apply plugin: "com.facebook.react"
+apply plugin: "org.jetbrains.kotlin.android"
 
 android {
     namespace "com.rtnexample"
