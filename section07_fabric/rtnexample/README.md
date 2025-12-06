@@ -16,9 +16,23 @@ criar um arquivo `.npmignore`
 ```
 /*
 
+# ios
+ios/*
+!ios/RTNExample.h
+!ios/RTNExample.mm
+!ios/Example.swift
+
+# android
+android/*
+!android/build.gradle
+android/src/main/java/com/rtnexample/*
+!android/src/main/java/com/rtnexample/ExampleModule.kt
+!android/src/main/java/com/rtnexample/ExamplePackage.kt
+
 !js
 !package.json
 !README.md
+!rtn-example.podspec
 ```
 
 ## Configuração no android

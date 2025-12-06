@@ -5,11 +5,11 @@ import com.facebook.react.bridge.ReactApplicationContext
 
 class ExampleModule(reactContext: ReactApplicationContext): NativeRTNExampleSpec(reactContext)  {
     override fun printMessage() {
-        println("Hello from Kotlin! printMessage")
+        println("My message with Turbo Module")
     }
 
     override fun returnMessage(promise: Promise?) {
-        println("Hello from Kotlin! returnMessage")
+        promise?.resolve("My message returned in console log")
     }
 
     override fun paramsFunction(
@@ -17,11 +17,11 @@ class ExampleModule(reactContext: ReactApplicationContext): NativeRTNExampleSpec
         age: Double,
         promise: Promise?
     ) {
-        println("Hello from Kotlin! paramsFunction")
+        promise?.resolve("Hello my name is $name and my age is $age")
     }
 
     override fun emmiterFunction() {
-        println("Hello from Kotlin! emmiterFunction")
+        emitOnValueChanged(432.0)
     }
 
     companion object {

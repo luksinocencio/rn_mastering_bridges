@@ -1,6 +1,6 @@
 {
   "name": "rtn-example",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": false,
   "description": "My turbo module",
   "homepage": "https://example.com",
@@ -18,7 +18,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "script:copy-folder": "node ./scripts/copy-folder.js"
+    "script:copy-folder": "node ./scripts/copy-folder.js",
+    "publish-npm": "npm run script:copy-folder && npm pack"
   },
   "peerDependencies": {
     "react": "*",

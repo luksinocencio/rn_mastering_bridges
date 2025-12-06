@@ -1,14 +1,9 @@
 import { useEffect, useRef } from 'react';
-import {
-  Button,
-  EventSubscription,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { EventSubscription, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import NativeRTNExample from 'rtn-example';
+import BtnComponent from './src/components/BtnComponent';
 
 function App() {
   const subscription = useRef<EventSubscription | null>(null);
@@ -23,30 +18,30 @@ function App() {
     <SafeAreaProvider>
       <View style={styles.container}>
         <Text>Hello World</Text>
-        <Button
+        <BtnComponent
           title="printMessage"
           onPress={() => NativeRTNExample?.printMessage()}
         />
-        <Button
+        <BtnComponent
           title="returnMessage"
           onPress={async () => {
             const message = await NativeRTNExample?.returnMessage();
             console.log(message);
           }}
         />
-        <Button
+        <BtnComponent
           title="paramsFunction"
           onPress={async () => {
             const message = await NativeRTNExample?.paramsFunction('Lucas', 33);
             console.log(message);
           }}
         />
-        <Button
+        <BtnComponent
           title="emitFunction"
           onPress={() => NativeRTNExample?.emmiterFunction()}
         />
 
-        <Button
+        <BtnComponent
           title="cancelEmmitFunction"
           onPress={() => subscription.current?.remove()}
         />
