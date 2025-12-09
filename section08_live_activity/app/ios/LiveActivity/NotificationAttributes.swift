@@ -1,7 +1,7 @@
 import ActivityKit
 import Foundation
 
-struct AdventuresAttributes: ActivityAttributes {
+struct NotificationAttributes: ActivityAttributes {
   public typealias NotificationStatus = ContentState
   
   public struct ContentState: Codable, Hashable {
