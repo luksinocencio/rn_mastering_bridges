@@ -12,6 +12,7 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D73EBAA380C2DD466054896A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		E80556842EE8778900C89690 /* NotificationAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80556832EE8777E00C89690 /* NotificationAttributes.swift */; };
 		E8CC39D42EE76737000BC1CB /* RCTLiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */; };
 		E8CC39D62EE76801000BC1CB /* RCTLiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = app/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E80556832EE8777E00C89690 /* NotificationAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAttributes.swift; sourceTree = "<group>"; };
 		E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCTLiveActivityModule.swift; sourceTree = "<group>"; };
 		E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTLiveActivityModule.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,7 @@
 		E8CC39D22EE766F2000BC1CB /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
+				E80556832EE8777E00C89690 /* NotificationAttributes.swift */,
 				E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */,
 				E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */,
 			);
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8CC39D42EE76737000BC1CB /* RCTLiveActivityModule.swift in Sources */,
+				E80556842EE8778900C89690 /* NotificationAttributes.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				E8CC39D62EE76801000BC1CB /* RCTLiveActivityModule.m in Sources */,
 			);
