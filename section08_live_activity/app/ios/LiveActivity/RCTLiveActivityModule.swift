@@ -9,7 +9,7 @@ public class RCTLiveActivityModule: NSObject {
     _ restaurant: String,
     _ order: String,
     _ status: String,
-    _ decription: String,
+    _ description: String,
     _ step: CGFloat,
     _ stepMessage: String,
     _ imageStep: String
