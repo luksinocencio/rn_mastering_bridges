@@ -34,6 +34,8 @@ func hexStringToUiColor (hex: String) -> UIColor {
 }
 
 struct ProgressBar: View {
+  let step: CGFloat
+  
   let activityColor = Color(hexStringToUiColor(hex: "#48EAB6"))
   let inactiveColor = Color(hexStringToUiColor(hex: "#D3D3D3"))
   
@@ -41,21 +43,23 @@ struct ProgressBar: View {
     HStack {
       RoundedRectangle(cornerRadius: 8, style: .continuous)
         .frame(width: 70, height: 5)
-        .foregroundColor(activityColor)
+        .foregroundColor(step >= 1 ? activityColor : inactiveColor)
       
       RoundedRectangle(cornerRadius: 8, style: .continuous)
         .frame(width: 170, height: 5)
-        .foregroundColor(inactiveColor)
+        .foregroundColor(step >= 2 ? activityColor : inactiveColor)
       
       RoundedRectangle(cornerRadius: 8, style: .continuous)
         .frame(width: 70, height: 5)
-        .foregroundColor(inactiveColor)
+        .foregroundColor(step >= 3 ? activityColor : inactiveColor)
       
     }.padding([.top, .bottom], 4)
   }
 }
 
 struct ContentNotification: View {
+  let context: ActivityViewContext<NotificationAttributes>
+  
   var body: some View {
     VStack(alignment: .leading) {
       HStack() {
@@ -64,24 +68,24 @@ struct ContentNotification: View {
           .frame(width: 50, height: 50)
         
         VStack(alignment: .leading) {
-          Text("Burger do Zé")
+          Text(context.attributes.restaurant)
             .font(.system(size: 18))
             .fontWeight(.bold)
             .foregroundColor(.black)
           
-          Text("Pedido: **#0208**")
+          Text("Pedido: **\(context.attributes.order)**")
             .font(.headline)
             .foregroundColor(.black)
         }
       }
       
-      Text("Estamos preparando o seu burgão")
+      Text(context.state.status)
         .font(.subheadline)
         .foregroundColor(.black)
       
-      ProgressBar()
+      ProgressBar(step: context.state.step)
       
-      Text("Em até 30 minutos seu pedido sai para entrega")
+      Text(context.state.description)
         .font(.subheadline)
         .foregroundColor(.gray)
     }
@@ -93,7 +97,7 @@ struct ContentNotification: View {
 struct NotificationWidgetView: Widget {
   var body: some WidgetConfiguration {
     ActivityConfiguration(for: NotificationAttributes.self) { context in
-      ContentNotification()
+      ContentNotification(context: context)
     } dynamicIsland: { context in
       DynamicIsland {
         DynamicIslandExpandedRegion(.leading, priority: 1) {

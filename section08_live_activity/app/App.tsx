@@ -12,12 +12,12 @@ function App() {
         onPress={() =>
           LiveActivityModule.startNotification(
             'McDonalds',
-            'Order #123',
-            'preparing',
-            'O pedido está sendo preparado',
+            'Order #1708',
+            'Estamos preparando seu burgão',
+            'Em até 30 min seu pedido sai para entrega',
             1,
-            'Preparando',
-            'step1.png',
+            'Boas notícias',
+            'cooking',
           )
         }
         preset="start"
