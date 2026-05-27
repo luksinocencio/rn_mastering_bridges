@@ -94,6 +94,14 @@ struct ContentNotification: View {
   }
 }
 
+struct ContentDynamicExpanded: View {
+  var body: some View {
+    VStack {
+      
+    }
+  }
+}
+
 struct NotificationWidgetView: Widget {
   var body: some WidgetConfiguration {
     ActivityConfiguration(for: NotificationAttributes.self) { context in
@@ -101,18 +109,12 @@ struct NotificationWidgetView: Widget {
     } dynamicIsland: { context in
       DynamicIsland {
         DynamicIslandExpandedRegion(.leading, priority: 1) {
-          Text("Dynamic Island")
-        }
-        DynamicIslandExpandedRegion(.center, priority: 1) {
-          Text("Dynamic Island")
-        }
-        DynamicIslandExpandedRegion(.trailing, priority: 1) {
-          Text("Dynamic Island")
+          ContentDynamicExpanded()
         }
       } compactLeading: {
-        Text("L")
+        Text("Leading")
       } compactTrailing: {
-        Text("R")
+        Text("Trailing")
       } minimal: {
         Text("M")
       }
