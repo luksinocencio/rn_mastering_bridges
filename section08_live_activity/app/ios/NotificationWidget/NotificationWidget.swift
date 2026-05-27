@@ -97,7 +97,8 @@ struct ContentNotification: View {
 struct ContentDynamicExpanded: View {
   var body: some View {
     VStack {
-      
+      Image("delivery")
+        .frame(width: 90, height: 90)
     }
   }
 }
@@ -112,11 +113,15 @@ struct NotificationWidgetView: Widget {
           ContentDynamicExpanded()
         }
       } compactLeading: {
-        Text("Leading")
+        Image("logoBurgao")
+          .resizable()
+          .frame(width: 20, height: 20)
+          .background(.white)
+          .cornerRadius(40)
       } compactTrailing: {
-        Text("Trailing")
+        Image(systemName: "clock")
       } minimal: {
-        Text("M")
+        Image(systemName: "clock")
       }
     }
   }
