@@ -3,8 +3,6 @@ import BtnComponent from './src/components/BtnComponent';
 import { LiveActivityModule } from './src/native/RCTLiveActivityModule';
 
 function App() {
-  // const { LiveActivityModule } = NativeModules;
-
   return (
     <View style={styles.container}>
       <BtnComponent
@@ -26,13 +24,15 @@ function App() {
       <BtnComponent
         title="Update Notification"
         onPress={() =>
-          LiveActivityModule.updateNotification(
-            'out_for_delivery',
-            'Saiu para entrega',
-            2,
-            'A caminho',
-            'step2.png',
-          )
+          setTimeout(() => {
+            LiveActivityModule.updateNotification(
+              'Seu burgão saiu para entrega',
+              'Nos avalie e ganhe 10% de desconto',
+              2,
+              'Ufaaa... Finalmente',
+              'delivery',
+            );
+          }, 3000)
         }
         preset="update"
       />
@@ -41,11 +41,11 @@ function App() {
         title="Cancel Notification"
         onPress={() =>
           LiveActivityModule.cancelNotification(
-            'canceled',
-            'Seu pedido foi cancelado',
-            0,
-            'Cancelado',
-            'step_cancel.png',
+            'Agora é so aproveitar',
+            'Não esqueça de nos avaliar',
+            3,
+            'Cheguei!!',
+            'delivered',
           )
         }
         preset="cancel"

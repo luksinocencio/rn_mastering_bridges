@@ -13,7 +13,7 @@ type LiveActivityModuleType = {
 
   updateNotification(
     status: string,
-    decription: string,
+    description: string,
     step: number,
     stepMessage: string,
     imageStep: string,
@@ -21,7 +21,7 @@ type LiveActivityModuleType = {
 
   cancelNotification(
     status: string,
-    decription: string,
+    description: string,
     step: number,
     stepMessage: string,
     imageStep: string,

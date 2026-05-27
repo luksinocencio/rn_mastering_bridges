@@ -35,36 +35,58 @@ public class RCTLiveActivityModule: NSObject {
   @objc
   public func updateNotification(
     _ status: String,
-    _ decription: String,
+    _ description: String,
     _ step: CGFloat,
     _ stepMessage: String,
     _ imageStep: String
   ) {
-    print("""
-    updateNotification
-    status: \(status)
-    decription: \(decription)
-    step: \(step)
-    stepMessage: \(stepMessage)
-    imageStep: \(imageStep)
-    """)
+    
+    let contentState = NotificationAttributes.ContentState(
+      status: status,
+      description: description,
+      step: step,
+      stepMessage: stepMessage,
+      imageStep: imageStep
+    )
+    
+    if #available(iOS 16.1, *) {
+      let alertConfiguration = AlertConfiguration(title: "Title alert", body: "body", sound: .default)
+      Task {
+        for activity in Activity<NotificationAttributes>.activities {
+          await activity.update(using: contentState, alertConfiguration: alertConfiguration)
+        }
+      }
+    } else {
+      print("Other version iOS")
+    }
   }
   
   @objc
   public func cancelNotification(
     _ status: String,
-    _ decription: String,
+    _ description: String,
     _ step: CGFloat,
     _ stepMessage: String,
     _ imageStep: String
   ) {
-    print("""
-    cancelNotification
-    status: \(status)
-    decription: \(decription)
-    step: \(step)
-    stepMessage: \(stepMessage)
-    imageStep: \(imageStep)
-    """)
+
+    let contentState = NotificationAttributes.ContentState(
+      status: status,
+      description: description,
+      step: step,
+      stepMessage: stepMessage,
+      imageStep: imageStep
+    )
+    
+    if #available(iOS 16.1, *) {
+      let alertConfiguration = AlertConfiguration(title: "Title alert", body: "body", sound: .default)
+      Task {
+        for activity in Activity<NotificationAttributes>.activities {
+          await activity.end(using: contentState, dismissalPolicy: .default)
+        }
+      }
+    } else {
+      print("Other version iOS")
+    }
   }
 }

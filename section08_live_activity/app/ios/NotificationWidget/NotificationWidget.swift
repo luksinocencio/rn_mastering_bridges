@@ -95,11 +95,26 @@ struct ContentNotification: View {
 }
 
 struct ContentDynamicExpanded: View {
+  let context: ActivityViewContext<NotificationAttributes>
+  
   var body: some View {
-    VStack {
-      Image("delivery")
-        .frame(width: 90, height: 90)
+    VStack(alignment: .leading) {
+      Image(context.state.imageStep)
+        .frame(width: 50, height: 50)
+      
+      Text(context.state.stepMessage)
+        .font(.title3)
+        .fontWeight(.bold)
+        .padding(.top, 4)
+      
+      Text(context.state.description)
+        .font(.subheadline)
+        .fontWeight(.medium)
+      
+      ProgressBar(step: context.state.step)
     }
+    .frame(maxWidth: .infinity)
+    .padding(.horizontal, 10)
   }
 }
 
@@ -107,10 +122,12 @@ struct NotificationWidgetView: Widget {
   var body: some WidgetConfiguration {
     ActivityConfiguration(for: NotificationAttributes.self) { context in
       ContentNotification(context: context)
+        .activityBackgroundTint(Color.white)
+        .activitySystemActionForegroundColor(Color.black)
     } dynamicIsland: { context in
       DynamicIsland {
         DynamicIslandExpandedRegion(.leading, priority: 1) {
-          ContentDynamicExpanded()
+          ContentDynamicExpanded(context: context)
         }
       } compactLeading: {
         Image("logoBurgao")
@@ -120,8 +137,10 @@ struct NotificationWidgetView: Widget {
           .cornerRadius(40)
       } compactTrailing: {
         Image(systemName: "clock")
+          .foregroundColor(.white)
       } minimal: {
         Image(systemName: "clock")
+          .foregroundColor(.white)
       }
     }
   }
