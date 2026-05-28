@@ -10,11 +10,16 @@
     "test": "jest"
   },
   "codegenConfig": {
-    "name": " NativeLiveActivitySpec",
+    "name": "NativeLiveActivitySpec",
     "type": "modules",
     "jsSrcsDir": "specs",
     "android": {
       "javaPackageName": "com.liveActivity"
+    },
+    "ios": {
+      "modulesProvider": {
+        "NativeLiveActivity": "RCTNativeLiveActivity"
+      }
     }
   },
   "dependencies": {

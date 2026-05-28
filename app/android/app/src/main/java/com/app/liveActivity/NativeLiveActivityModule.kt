@@ -10,7 +10,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         restaurant: String?,
         order: String?,
         status: String?,
-        decription: String?,
+        description: String?,
         step: Double,
         stepMessage: String?,
         imageStep: String?

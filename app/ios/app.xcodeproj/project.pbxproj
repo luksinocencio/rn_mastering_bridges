@@ -14,7 +14,7 @@
 		D73EBAA380C2DD466054896A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		E80556842EE8778900C89690 /* NotificationAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80556832EE8777E00C89690 /* NotificationAttributes.swift */; };
 		E8CC39D42EE76737000BC1CB /* RCTLiveActivityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */; };
-		E8CC39D62EE76801000BC1CB /* RCTLiveActivityModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */; };
+		E8CC39D62EE76801000BC1CB /* RCTNativeLiveActivity.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8CC39D52EE76801000BC1CB /* RCTNativeLiveActivity.mm */; };
 		E8F75B1C2EE8950100BA35CB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F75B1B2EE8950100BA35CB /* WidgetKit.framework */; };
 		E8F75B1E2EE8950100BA35CB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F75B1D2EE8950100BA35CB /* SwiftUI.framework */; };
 		E8F75B292EE8950200BA35CB /* NotificationWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E8F75B1A2EE8950100BA35CB /* NotificationWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -57,7 +57,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E80556832EE8777E00C89690 /* NotificationAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAttributes.swift; sourceTree = "<group>"; };
 		E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCTLiveActivityModule.swift; sourceTree = "<group>"; };
-		E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTLiveActivityModule.m; sourceTree = "<group>"; };
+		E8CC39D52EE76801000BC1CB /* RCTNativeLiveActivity.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeLiveActivity.mm; sourceTree = "<group>"; };
 		E8F75B1A2EE8950100BA35CB /* NotificationWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F75B1B2EE8950100BA35CB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E8F75B1D2EE8950100BA35CB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -179,7 +179,7 @@
 			children = (
 				E80556832EE8777E00C89690 /* NotificationAttributes.swift */,
 				E8CC39D32EE76728000BC1CB /* RCTLiveActivityModule.swift */,
-				E8CC39D52EE76801000BC1CB /* RCTLiveActivityModule.m */,
+				E8CC39D52EE76801000BC1CB /* RCTNativeLiveActivity.mm */,
 			);
 			path = LiveActivity;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				E8CC39D42EE76737000BC1CB /* RCTLiveActivityModule.swift in Sources */,
 				E80556842EE8778900C89690 /* NotificationAttributes.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
-				E8CC39D62EE76801000BC1CB /* RCTLiveActivityModule.m in Sources */,
+				E8CC39D62EE76801000BC1CB /* RCTNativeLiveActivity.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@ export interface Spec extends TurboModule {
     restaurant: string,
     order: string,
     status: string,
-    decription: string,
+    description: string,
     step: number,
     stepMessage: string,
     imageStep: string,

@@ -4,13 +4,13 @@ import ActivityKit
 @objc(RCTLiveActivityModule)
 public class RCTLiveActivityModule: NSObject {
 
-  @objc
+  @objc(startNotification:order:status:description:step:stepMessage:imageStep:)
   public func startNotification(
     _ restaurant: String,
     _ order: String,
     _ status: String,
     _ description: String,
-    _ step: CGFloat,
+    _ step: Double,
     _ stepMessage: String,
     _ imageStep: String
   ) {
@@ -18,7 +18,7 @@ public class RCTLiveActivityModule: NSObject {
     let attributesNotification = NotificationAttributes(restaurant: restaurant, order: order)
     
     let contentNotification = NotificationAttributes.ContentState(
-      status: status, description: description, step: step, stepMessage: stepMessage, imageStep: imageStep
+      status: status, description: description, step: CGFloat(step), stepMessage: stepMessage, imageStep: imageStep
     )
     
     do {
@@ -32,11 +32,11 @@ public class RCTLiveActivityModule: NSObject {
     }
   }
   
-  @objc
+  @objc(updateNotification:description:step:stepMessage:imageStep:)
   public func updateNotification(
     _ status: String,
     _ description: String,
-    _ step: CGFloat,
+    _ step: Double,
     _ stepMessage: String,
     _ imageStep: String
   ) {
@@ -44,7 +44,7 @@ public class RCTLiveActivityModule: NSObject {
     let contentState = NotificationAttributes.ContentState(
       status: status,
       description: description,
-      step: step,
+      step: CGFloat(step),
       stepMessage: stepMessage,
       imageStep: imageStep
     )
@@ -61,11 +61,11 @@ public class RCTLiveActivityModule: NSObject {
     }
   }
   
-  @objc
+  @objc(cancelNotification:description:step:stepMessage:imageStep:)
   public func cancelNotification(
     _ status: String,
     _ description: String,
-    _ step: CGFloat,
+    _ step: Double,
     _ stepMessage: String,
     _ imageStep: String
   ) {
@@ -73,7 +73,7 @@ public class RCTLiveActivityModule: NSObject {
     let contentState = NotificationAttributes.ContentState(
       status: status,
       description: description,
-      step: step,
+      step: CGFloat(step),
       stepMessage: stepMessage,
       imageStep: imageStep
     )

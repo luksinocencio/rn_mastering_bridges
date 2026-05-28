@@ -21,7 +21,6 @@ function App() {
         }
         preset="start"
       />
-      {/* 
 
       <BtnComponent
         title="Update Notification"
@@ -51,7 +50,7 @@ function App() {
           )
         }
         preset="cancel"
-      /> */}
+      />
     </View>
   );
 }
