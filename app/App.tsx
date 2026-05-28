@@ -3,7 +3,7 @@ import NativeLiveActivity from './specs/NativeLiveActivity';
 import BtnComponent from './src/components/BtnComponent';
 
 function App() {
-  console.log(NativeLiveActivity);
+  // console.log(NativeLiveActivity);
   return (
     <View style={styles.container}>
       <BtnComponent

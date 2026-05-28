@@ -7,6 +7,8 @@ import com.liveActivity.NativeLiveActivitySpec
 class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLiveActivitySpec(reactContext) {
     override fun getName() = NAME
 
+    private val liveNotification = LiveActivity(reactContext)
+
     override fun startNotification(
         restaurant: String?,
         order: String?,
@@ -16,7 +18,8 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        Log.d(NAME, "startNotification $restaurant, $order, $status, $description, $step, $stepMessage, $imageStep")
+//        Log.d(NAME, "startNotification $restaurant, $order, $status, $description, $step, $stepMessage, $imageStep")
+        liveNotification.startNotification()
     }
 
     override fun updateNotification(
