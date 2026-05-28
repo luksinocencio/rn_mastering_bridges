@@ -16,7 +16,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        Log.d(NAME, "startNotification")
+        Log.d(NAME, "startNotification $restaurant, $order, $status, $description, $step, $stepMessage, $imageStep")
     }
 
     override fun updateNotification(
@@ -26,7 +26,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        Log.d(NAME, "updateNotification")
+        Log.d(NAME, "updateNotification $status, $description, $step, $stepMessage, $imageStep")
     }
 
     override fun cancelNotification(
@@ -36,7 +36,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        Log.d(NAME, "cancelNotification")
+        Log.d(NAME, "cancelNotification $status, $description, $step, $stepMessage, $imageStep")
     }
 
     companion object {
