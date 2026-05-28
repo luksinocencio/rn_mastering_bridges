@@ -1,14 +1,15 @@
 import { StyleSheet, View } from 'react-native';
+import NativeLiveActivity from './specs/NativeLiveActivity';
 import BtnComponent from './src/components/BtnComponent';
-import { LiveActivityModule } from './src/native/RCTLiveActivityModule';
 
 function App() {
+  // console.log(NativeLiveActivity);
   return (
     <View style={styles.container}>
       <BtnComponent
         title="Start Notification"
         onPress={() =>
-          LiveActivityModule.startNotification(
+          NativeLiveActivity.startNotification(
             'McDonalds',
             'Order #1708',
             'Estamos preparando seu burgão',
@@ -20,12 +21,13 @@ function App() {
         }
         preset="start"
       />
+      {/* 
 
       <BtnComponent
         title="Update Notification"
         onPress={() =>
           setTimeout(() => {
-            LiveActivityModule.updateNotification(
+            NativeLiveActivity.updateNotification(
               'Seu burgão saiu para entrega',
               'Nos avalie e ganhe 10% de desconto',
               2,
@@ -40,7 +42,7 @@ function App() {
       <BtnComponent
         title="Cancel Notification"
         onPress={() =>
-          LiveActivityModule.cancelNotification(
+          NativeLiveActivity.cancelNotification(
             'Agora é so aproveitar',
             'Não esqueça de nos avaliar',
             3,
@@ -49,7 +51,7 @@ function App() {
           )
         }
         preset="cancel"
-      />
+      /> */}
     </View>
   );
 }

@@ -9,6 +9,14 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "codegenConfig": {
+    "name": " NativeLiveActivitySpec",
+    "type": "modules",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.liveActivity"
+    }
+  },
   "dependencies": {
     "@react-native/new-app-screen": "0.85.3",
     "react": "19.2.3",
