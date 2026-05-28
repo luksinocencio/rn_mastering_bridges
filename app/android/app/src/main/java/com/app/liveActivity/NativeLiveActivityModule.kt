@@ -1,5 +1,6 @@
 package com.app.liveActivity
 
+import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 import com.liveActivity.NativeLiveActivitySpec
 
@@ -15,7 +16,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        println("startNotification")
+        Log.d(NAME, "startNotification")
     }
 
     override fun updateNotification(
@@ -25,7 +26,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        println("updateNotification")
+        Log.d(NAME, "updateNotification")
     }
 
     override fun cancelNotification(
@@ -35,7 +36,7 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         stepMessage: String?,
         imageStep: String?
     ) {
-        println("cancelNotification")
+        Log.d(NAME, "cancelNotification")
     }
 
     companion object {

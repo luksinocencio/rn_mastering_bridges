@@ -7,18 +7,19 @@ import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 
 class NativeLiveActivityPackage : BaseReactPackage() {
-    override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
-        if (name == NativeLiveActivityModule.NAME) {
+    override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
+        return if (name == NativeLiveActivityModule.NAME) {
             NativeLiveActivityModule(reactContext)
         } else {
             null
         }
+    }
 
     override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
         mapOf(
             NativeLiveActivityModule.NAME to ReactModuleInfo(
                 name = NativeLiveActivityModule.NAME,
-                className = NativeLiveActivityModule.NAME,
+                className = NativeLiveActivityModule::class.java.name,
                 canOverrideExistingModule = false,
                 needsEagerInit = false,
                 isCxxModule = false,
