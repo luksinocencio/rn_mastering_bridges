@@ -2,10 +2,13 @@ package com.app.liveActivity
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.app.MainActivity
 import com.app.R
 
 class LiveActivity(private val context: Context) {
@@ -20,6 +23,17 @@ class LiveActivity(private val context: Context) {
 
     private var notificationSmall = RemoteViews(context.packageName, R.layout.small_notification)
     private var notificationLarge = RemoteViews(context.packageName, R.layout.large_notification)
+
+    private val intent = Intent(context, MainActivity::class.java).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+
+    private val pendingIntent = PendingIntent.getActivity(
+        context,
+        0,
+        intent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
 
     fun startNotification(
         paramRestaurant: String?,
@@ -102,6 +116,7 @@ class LiveActivity(private val context: Context) {
             .setCustomContentView(notificationSmall)
             .setCustomBigContentView(notificationLarge)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
             .build()
 
         notificationManager.notify(notificationId, notificationApp)
@@ -113,7 +128,8 @@ class LiveActivity(private val context: Context) {
             R.id.small_notification_step2 to R.id.large_notification_step2,
             R.id.small_notification_step3 to R.id.large_notification_step3
         ).forEachIndexed { index, (smallStepId, largeStepId) ->
-            val backgroundId = if (step >= index + 1) R.drawable.active_background_step else R.drawable.inactive_background_step
+            val backgroundId =
+                if (step >= index + 1) R.drawable.active_background_step else R.drawable.inactive_background_step
             notificationSmall.setInt(smallStepId, "setBackgroundResource", backgroundId)
             notificationLarge.setInt(largeStepId, "setBackgroundResource", backgroundId)
         }
