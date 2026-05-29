@@ -4,7 +4,8 @@ import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 import com.liveActivity.NativeLiveActivitySpec
 
-class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLiveActivitySpec(reactContext) {
+class NativeLiveActivityModule(reactContext: ReactApplicationContext) :
+    NativeLiveActivitySpec(reactContext) {
     override fun getName() = NAME
 
     private val liveNotification = LiveActivity(reactContext)
@@ -19,7 +20,15 @@ class NativeLiveActivityModule(reactContext: ReactApplicationContext) : NativeLi
         imageStep: String?
     ) {
 //        Log.d(NAME, "startNotification $restaurant, $order, $status, $description, $step, $stepMessage, $imageStep")
-        liveNotification.startNotification()
+        liveNotification.startNotification(
+            restaurant,
+            order,
+            status,
+            description,
+            step,
+            stepMessage,
+            imageStep
+        )
     }
 
     override fun updateNotification(
