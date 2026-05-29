@@ -5,7 +5,7 @@
     <string name="small_notification_image_description">Imagem da menor notificação</string>
     <string name="logo_restaurante">logo restaurante</string>
     <string name="large_notification_restaurant">Burgão do Jão</string>
-    <string name="large_notification_title_order">Pedido:</string>
+    <string name="large_notification_title_order">Pedido: </string>
     <string name="large_notification_order">#0208</string>
     <string name="large_notification_status">Estamos preparando seu burgão</string>
     <string name="large_notification_description">Em até 30 min seu pedido sairá para entrega.</string>

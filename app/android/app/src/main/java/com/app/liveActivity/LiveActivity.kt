@@ -12,6 +12,8 @@ class LiveActivity(private val context: Context) {
     private var channelId = "channel_live_activity"
     private var channelName = "Live Activity Delivery"
     private var notificationId = 1
+    private var restaurant: String? = null
+    private var order: String? = null
 
     private val notificationManager: NotificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -20,8 +22,8 @@ class LiveActivity(private val context: Context) {
     private var notificationLarge = RemoteViews(context.packageName, R.layout.large_notification)
 
     fun startNotification(
-        restaurant: String?,
-        order: String?,
+        paramRestaurant: String?,
+        paramOrder: String?,
         status: String?,
         description: String?,
         step: Double,
@@ -29,9 +31,70 @@ class LiveActivity(private val context: Context) {
         imageStep: String?
     ) {
         createNotificationChannel()
+        restaurant = paramRestaurant
+        order = paramOrder
 
-        updateSmallNotification(status, stepMessage, imageStep)
-        updateLargeNotification(restaurant, order, description)
+        updateLayout(
+            status = status,
+            description = description,
+            step = step,
+            stepMessage = stepMessage,
+            imageStep = imageStep
+        )
+    }
+
+    fun updateNotification(
+        status: String?,
+        description: String?,
+        step: Double,
+        stepMessage: String?,
+        imageStep: String?
+    ) {
+        updateLayout(
+            status = status,
+            description = description,
+            step = step,
+            stepMessage = stepMessage,
+            imageStep = imageStep
+        )
+    }
+
+    fun cancelNotification(
+
+        status: String?,
+        description: String?,
+        step: Double,
+        stepMessage: String?,
+        imageStep: String?
+    ) {
+        updateLayout(
+            status = status,
+            description = description,
+            step = step,
+            stepMessage = stepMessage,
+            imageStep = imageStep
+        )
+    }
+
+    private fun updateLayout(
+        status: String?,
+        description: String?,
+        step: Double,
+        stepMessage: String?,
+        imageStep: String?
+    ) {
+        notificationSmall.setTextViewText(R.id.small_notification_stepMessage, stepMessage)
+        notificationSmall.setTextViewText(R.id.small_notification_status, status)
+
+        val resourceId = context.resources.getIdentifier(imageStep, "drawable", context.packageName)
+        notificationSmall.setImageViewResource(R.id.small_notification_image, resourceId)
+
+        notificationLarge.setTextViewText(R.id.large_notification_restaurant, restaurant)
+        notificationLarge.setTextViewText(R.id.large_notification_order, order)
+        notificationLarge.setTextViewText(R.id.large_notification_description, description)
+        notificationLarge.setTextViewText(R.id.large_notification_status, status)
+
+        updateSteps(step)
 
         val notificationApp = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.mipmap.ic_launcher_round)
@@ -44,18 +107,16 @@ class LiveActivity(private val context: Context) {
         notificationManager.notify(notificationId, notificationApp)
     }
 
-    private fun updateSmallNotification(status: String?, stepMessage: String?, imageStep: String?) {
-        notificationSmall.setTextViewText(R.id.small_notification_stepMessage, stepMessage)
-        notificationSmall.setTextViewText(R.id.small_notification_status, status)
-        
-        val resourceId = context.resources.getIdentifier(imageStep, "drawable", context.packageName)
-        notificationSmall.setImageViewResource(R.id.small_notification_image, resourceId)
-    }
-
-    private fun updateLargeNotification(restaurant: String?, order: String?, description: String?) {
-        notificationSmall.setTextViewText(R.id.large_notification_restaurant, restaurant)
-        notificationSmall.setTextViewText(R.id.large_notification_order, order)
-        notificationSmall.setTextViewText(R.id.large_notification_description, description)
+    private fun updateSteps(step: Double) {
+        listOf(
+            R.id.small_notification_step1 to R.id.large_notification_step1,
+            R.id.small_notification_step2 to R.id.large_notification_step2,
+            R.id.small_notification_step3 to R.id.large_notification_step3
+        ).forEachIndexed { index, (smallStepId, largeStepId) ->
+            val backgroundId = if (step >= index + 1) R.drawable.active_background_step else R.drawable.inactive_background_step
+            notificationSmall.setInt(smallStepId, "setBackgroundResource", backgroundId)
+            notificationLarge.setInt(largeStepId, "setBackgroundResource", backgroundId)
+        }
     }
 
     private fun createNotificationChannel() {

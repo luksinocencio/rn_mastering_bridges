@@ -11,7 +11,7 @@ function App() {
         onPress={() =>
           NativeLiveActivity.startNotification(
             'McDonalds',
-            'Order #1708',
+            '#1708',
             'Estamos preparando seu burgão',
             'Em até 30 min seu pedido sai para entrega',
             1,
